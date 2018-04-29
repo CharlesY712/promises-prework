@@ -8,7 +8,17 @@ const testNum = (num) => {
   }
 };
 
+const makeAllCaps = (wordArray) => {
+  if (wordArray.every(word => typeof word === 'string')) {
+    return Promise.resolve(wordArray.map(word => word.toUpperCase()))
+  }
+  return Promise.reject(
+    'No, the array you passed in contained an element that was not a string!'
+  );
+}
 
+const sortWords = (wordArray) =>
+  Promise.resolve(wordArray.sort());
 
 // What is .then() used for, and what is .catch() used for?
 // then() is used for triggering the next step after a successful response. catch() is used for triggering the next step after a failed response.
